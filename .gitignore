@@ -1,0 +1,16 @@
+*.pyc
+*~
+*.zip
+*.tar.gz
+*.mat
+*.out
+*.aux
+*.toc
+*eps-converted-to.pdf
+*.swp
+*.log
+*.bbl
+*.blg
+*.gz
+*.spa
+.DS_Store

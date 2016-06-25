@@ -1,0 +1,137 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$lang$,$endif$$if(papersize)$$papersize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+$if(geometry)$\usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}$endif$
+$if(natbib)$\usepackage[super,sort&compress]{natbib}\bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}$endif$
+$if(listings)$\usepackage{listings}$endif$
+$if(tables)$\usepackage{tabularx,array,booktabs,multirow}$endif$
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+
+$if(graphics)$
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+$endif$
+
+\usepackage{hyperref}
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor="Daniel McCloy",
+            pdftitle={$title-meta$},
+            colorlinks=false,
+            pdfborder={0 0 0}}
+
+$if(numbersections)$
+%\setcounter{secnumdepth}{5}
+$else$
+%\setcounter{secnumdepth}{0}
+$endif$
+$if(verbatim-in-note)$
+%\VerbatimFootnotes % allows verbatim text in footnotes 
+$endif$
+$if(mainfont)$
+%    \setmainfont{$mainfont$}
+$endif$
+$if(sansfont)$
+%    \setsansfont{$sansfont$}
+$endif$
+$if(monofont)$
+%    \setmonofont[Mapping=tex-ansi]{$monofont$}
+$endif$
+$if(mathfont)$
+%    \setmathfont(Digits,Latin,Greek){$mathfont$}
+$endif$
+
+% % % % % % % % % % % % % % % % % %
+% MOSTLY JASA-SPECIFIC FORMATTING %
+% % % % % % % % % % % % % % % % % %
+\usepackage{amsmath, setspace, parskip}
+% SINGLE SPACE TABLES
+\usepackage{siunitx}
+\usepackage{etoolbox}  % provides \AtBeginEnvironment and \apptocmd
+\AtBeginEnvironment{tabular}{\singlespacing}
+\AtBeginEnvironment{quote}{\itshape}
+% formatting for section & subsection headings and table captions
+\usepackage[compact]{titlesec}
+\titlespacing*{\section}{0pt}{\parskip}{-0.5\parskip}
+\titlespacing*{\subsection}{0pt}{0pt}{-0.75\parskip}
+\titleformat*{\section}{\bfseries\uppercase}
+\titleformat*{\subsection}{\bfseries\itshape}
+%\makeatletter\renewcommand{\section}{\@startsection {section}{1}{0mm}{0.2\baselineskip}{0.1\baselineskip}{\bfseries\uppercase}}\makeatother %{name}{level}{indent}{beforeskip}{afterskip}{style}
+%\makeatletter\renewcommand{\subsection}{\@startsection {subsection}{2}{0mm}{0.2\baselineskip}{0.1\baselineskip}{\bfseries\itshape}}\makeatother %{name}{level}{indent}{beforeskip}{afterskip}{style}
+%\makeatletter\renewcommand{\subsubsection}{\@startsection {subsubsection}{3}{0mm}{0.2\baselineskip}{0.1\baselineskip}{\bfseries}}\makeatother %{name}{level}{indent}{beforeskip}{afterskip}{style}
+%\renewcommand{\thesection}{\Roman{section}.}
+%\renewcommand{\thesubsection}{\Alph{subsection}.}
+%\renewcommand{\thesubsubsection}{\arabic{subsubsection}.}
+%\renewcommand*\thetable{\Roman{table}}
+% format various headings to match the style of section headings 
+\renewcommand{\refname}{\bfseries\uppercase{references}}
+
+% % % % % % % % % % % % % 
+% other customizations  %
+% % % % % % % % % % % % % 
+\usepackage[shortcuts]{extdash}
+\usepackage{fontspec}
+\setmainfont[Numbers={Lining}]{Linux Libertine O} 
+\setmonofont[ItalicFont={M+ 1m}]{M+ 1m}
+\renewcommand{\url}{\begingroup \def\UrlLeft{}\def\UrlRight{}\urlstyle{same}\Url} % set URLs in whatever font surrounding text uses
+\thickmuskip=5mu plus 3mu minus 1mu % adjust equation spacing around =
+
+% reduce whitespace in title
+
+\usepackage{titling}
+\setlength{\droptitle}{-2cm}
+%\pretitle{\begin{center}\LARGE}
+\posttitle{\par\end{center}}
+\predate{}%
+\postdate{}%
+\preauthor{\begin{center}\large}%
+\postauthor{\par\end{center}}%
+
+% % % % % % % % % % % % % % % % %
+% title, subtitle, author, date %
+% % % % % % % % % % % % % % % % %
+$if(title)$\title{$title$$if(titlenote)$\thanks{$titlenote$}$endif$}$endif$
+$if(subtitle)$\subtitle{$subtitle$}$endif$
+$for(author)$\author{$author$}$endfor$
+$if(date)$\date{$date$}$else$\date{}$endif$
+
+\setlength{\voffset}{0pt}
+\setlength{\headsep}{0pt}
+
+\begin{document}
+%\onehalfspacing
+%\begin{spacing}{1.1}
+%\raggedright
+
+$if(title)$\maketitle$endif$
+\thispagestyle{empty}
+
+$for(include-before)$
+$include-before$
+$endfor$
+
+$body$
+
+%\end{spacing}
+%\cleardoublepage
+
+$if(natbib)$
+$if(biblio-files)$
+$if(biblio-title)$\renewcommand\refname{$biblio-title$}$endif$
+\bibliography{$biblio-files$}
+$endif$
+$endif$
+
+$for(include-after)$
+$include-after$
+$endfor$
+
+\end{document}
