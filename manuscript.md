@@ -26,8 +26,8 @@ keywords:
 - acoustics
 - sound
 - hearing
+copyrightyear: 2016
 abstract: Curabitur et finibus tellus. Mauris vel tortor non erat feugiat gravida a ut urna. Fusce sodales odio vitae tellus luctus, a porta lectus tempus. Nunc lacinia suscipit consectetur. Curabitur et finibus tellus. Nunc lacinia suscipit consectetur.
-
 acknowledgments: TODO acknowledge some folks
 possible-reviewers: TODO this is just a reminder to suggest some reviewers, not incorporated in the finished documents.
 ---
