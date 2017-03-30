@@ -48,6 +48,15 @@ Aenean efficitur consectetur arcu nec volutpat. Maecenas nec mattis nunc. Phasel
 Curabitur hendrerit lectus malesuada velit congue dictum. Nam tincidunt eros eu risus elementum ultrices sit amet quis orci. Suspendisse mattis, ante sed efficitur convallis, velit ligula lobortis erat, quis aliquam nulla lorem sed dolor. Suspendisse vitae feugiat augue.
 
 ### Stimuli
+Here is a cross-reference to Table \ref{tab-simple}. In the row of dashes in between the header row and content rows in the markdown source, the ratio of dashes in each column determines the relative column widths.  More complicated tables (e.g., using LaTeX `multicolumn`, or the `siunitx` package for number formatting and alignment) can be incorporated as LaTeX tables in the markdown source, or as separate `my-table.tex` files using `\include{my-table}` in the markdown source.
+
+Table: The simplest type of markdown table. There is a LaTeX `\label{}` tag in this caption for cross-referencing, and a couple of `$`-bracketed math expressions, but otherwise the table is pure markdown. \label{tab-simple}
+
+**Left aligned**             **Centered**                    **Right aligned**
+-------------------------- ---------------- ----------------------------------
+$\beta_i \times d^\prime$    `foo`                   some _nearly_ normal text
+$\alpha_j$                   bar^2^                       some other text
+
 Ut sodales lobortis sem vitae sodales. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam ultricies, elit eget venenatis aliquam, ex ligula ultrices risus, ut varius odio purus eget ante. Curabitur hendrerit lectus malesuada velit congue dictum. Nam tincidunt eros eu risus elementum ultrices sit amet quis orci. Suspendisse mattis, ante sed efficitur convallis, velit ligula lobortis erat, quis aliquam nulla lorem sed dolor. Suspendisse vitae feugiat augue.
 
 ### Participants

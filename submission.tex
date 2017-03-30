@@ -31,6 +31,7 @@
 \urlstyle{same}  % don't use monospace font for urls
 \usepackage[sort&compress,super,comma]{natbib}
 \bibliographystyle{bibstyle}
+\usepackage{longtable,booktabs}
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -230,6 +231,37 @@ ante sed efficitur convallis, velit ligula lobortis erat, quis aliquam
 nulla lorem sed dolor. Suspendisse vitae feugiat augue.
 
 \subsubsection{Stimuli}\label{stimuli}
+
+Here is a cross-reference to Table~\ref{tab-simple}. In the row of
+dashes in between the header row and content rows in the markdown
+source, the ratio of dashes in each column determines the relative
+column widths. More complicated tables (e.g., using LaTeX
+\texttt{multicolumn}, or the \texttt{siunitx} package for number
+formatting and alignment) can be incorporated as LaTeX tables in the
+markdown source, or as separate \texttt{my-table.tex} files using
+\texttt{\textbackslash{}include\{my-table\}} in the markdown source.
+
+\begin{longtable}[]{@{}lcr@{}}
+\caption{The simplest type of markdown table. There is a LaTeX
+\texttt{\textbackslash{}label\{\}} tag in this caption for
+cross-referencing, and a couple of \texttt{\$}-bracketed math
+expressions, but otherwise the table is pure markdown.
+\label{tab-simple}}\tabularnewline
+\toprule
+\textbf{Left aligned} & \textbf{Centered} & \textbf{Right
+aligned}\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+\textbf{Left aligned} & \textbf{Centered} & \textbf{Right
+aligned}\tabularnewline
+\midrule
+\endhead
+\(\beta_i \times d\thinspace^\prime\) & \texttt{foo} & some \emph{nearly} normal
+text\tabularnewline
+\(\alpha_j\) & bar\textsuperscript{2} & some other text\tabularnewline
+\bottomrule
+\end{longtable}
 
 Ut sodales lobortis sem vitae sodales. Interdum et malesuada fames ac
 ante ipsum primis in faucibus. Etiam ultricies, elit eget venenatis
